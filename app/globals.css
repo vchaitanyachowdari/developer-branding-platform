@@ -92,3 +92,23 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom styles for Developer Branding Platform */
+.link-style {
+  color: blue;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.link-style:hover {
+  color: darkblue;
+}
+
+.footer-link {
+  color: var(--muted-foreground);
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--foreground);
+}

@@ -18,7 +18,6 @@ import { defaultProfile } from "@/lib/default-data"
 import { templates } from "@/lib/templates"
 import { Download, Github, Palette, User, Code, Briefcase, Share2, GitBranch, Plus } from "lucide-react"
 import { downloadMarkdown } from "@/lib/utils"
-import "./app.css"
 
 export default function Home() {
   const [profile, setProfile] = useState<UserProfile>(defaultProfile)
@@ -185,7 +184,12 @@ export default function Home() {
         <p>Developer Branding Platform - Enhance your GitHub presence with a customized README</p>
         <p className="mt-1">
           ©2025{" "}
-          <a href="https://yourwebsite.com" target="_blank" rel="noopener noreferrer" className="link-style">
+          <a
+            href="https://yourwebsite.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline hover:text-blue-700"
+          >
             V Chaitanya Chowdari
           </a>
         </p>
