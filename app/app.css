@@ -16,9 +16,24 @@ import GitHubFeaturesForm from "@/components/github-features-form"
 import type { UserProfile } from "@/types/profile"
 import { defaultProfile } from "@/lib/default-data"
 import { templates } from "@/lib/templates"
-import { Download, Github, Palette, User, Code, Briefcase, Share2, GitBranch, Plus } from "lucide-react"
+import { Download, Github, Palette, User, Code, Briefcase, Share2, GitBranch, Plus } from 'lucide-react'
 import { downloadMarkdown } from "@/lib/utils"
-import "./app.css"
+
+/* Global styles for the Developer Branding Platform */
+
+.link-style {
+  color: blue;
+  text-decoration: underline;
+}
+
+.footer-link {
+  color: var(--muted-foreground);
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--foreground);
+}
 
 export default function Home() {
   const [profile, setProfile] = useState<UserProfile>(defaultProfile)
@@ -98,7 +113,7 @@ export default function Home() {
         <div className="flex items-center gap-4">
           <ModeToggle />
           <Button variant="outline" size="icon" asChild>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/vchaitanyachowdari" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <Github className="h-4 w-4" />
             </a>
           </Button>
@@ -183,12 +198,7 @@ export default function Home() {
 
       <div className="text-center text-sm text-muted-foreground">
         <p>Developer Branding Platform - Enhance your GitHub presence with a customized README</p>
-        <p className="mt-1">
-          ©2025{" "}
-          <a href="https://yourwebsite.com" target="_blank" rel="noopener noreferrer" className="link-style">
-            V Chaitanya Chowdari
-          </a>
-        </p>
+        <p>©2025 <p><a href="https://yourwebsite.com" target="_blank" rel="noopener noreferrer" style="color: blue; text-decoration: underline;">V Chaitanya Chowdari</a></p></p>
       </div>
     </main>
   )
