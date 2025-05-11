@@ -1,0 +1,88 @@
+import type { Theme } from "@/types/theme"
+
+export const themes: Theme[] = [
+  {
+    id: "light",
+    name: "Light",
+    description: "Clean, light theme with subtle accents",
+    colors: {
+      primary: "#0070f3",
+      secondary: "#6c757d",
+      background: "#ffffff",
+      text: "#333333",
+      accent: "#f5f5f5",
+    },
+    fontOptions: ["sans", "serif", "monospace"],
+    cardStyles: ["flat", "elevated", "bordered"],
+  },
+  {
+    id: "dark",
+    name: "Dark",
+    description: "Modern dark theme for a sleek look",
+    colors: {
+      primary: "#6366f1",
+      secondary: "#a5b4fc",
+      background: "#1e1e2e",
+      text: "#e2e8f0",
+      accent: "#2d2d3a",
+    },
+    fontOptions: ["sans", "serif", "monospace"],
+    cardStyles: ["flat", "elevated", "bordered"],
+  },
+  {
+    id: "cyberpunk",
+    name: "Cyberpunk",
+    description: "Futuristic neon theme with vibrant colors",
+    colors: {
+      primary: "#f81ce5",
+      secondary: "#0df5e3",
+      background: "#000000",
+      text: "#ffffff",
+      accent: "#1a1a1a",
+    },
+    fontOptions: ["futuristic", "monospace", "sans"],
+    cardStyles: ["neon", "terminal", "glassmorphism"],
+  },
+  {
+    id: "terminal",
+    name: "Terminal",
+    description: "Classic terminal look with monospace fonts",
+    colors: {
+      primary: "#00ff00",
+      secondary: "#33ff33",
+      background: "#0c0c0c",
+      text: "#00ff00",
+      accent: "#1a1a1a",
+    },
+    fontOptions: ["monospace"],
+    cardStyles: ["terminal", "flat"],
+  },
+  {
+    id: "glassmorphism",
+    name: "Glassmorphism",
+    description: "Modern glass effect with blur and transparency",
+    colors: {
+      primary: "#8b5cf6",
+      secondary: "#c4b5fd",
+      background: "#f9fafb",
+      text: "#1f2937",
+      accent: "rgba(255, 255, 255, 0.7)",
+    },
+    fontOptions: ["sans", "serif"],
+    cardStyles: ["glassmorphism", "elevated"],
+  },
+  {
+    id: "professional",
+    name: "Professional",
+    description: "Business-oriented theme with subtle colors",
+    colors: {
+      primary: "#2563eb",
+      secondary: "#93c5fd",
+      background: "#ffffff",
+      text: "#1f2937",
+      accent: "#f3f4f6",
+    },
+    fontOptions: ["serif", "sans"],
+    cardStyles: ["flat", "bordered", "elevated"],
+  },
+]
