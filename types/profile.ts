@@ -11,6 +11,9 @@ export interface UserProfile {
   medium: string
   wakatime: string
   skills: string[]
+  selectedSkills: {
+    [key: string]: boolean
+  }
   enabledComponents: {
     header: boolean
     about: boolean

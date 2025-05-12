@@ -13,6 +13,7 @@ export const defaultProfile: UserProfile = {
   medium: "",
   wakatime: "",
   skills: [],
+  selectedSkills: {},
   enabledComponents: {
     header: true,
     about: true,

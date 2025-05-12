@@ -6,8 +6,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Developer Branding Platform",
-  description: "Create a stunning GitHub profile README in minutes",
+  title: "DevBrand - GitHub Profile README Generator",
+  description: "Create stunning GitHub profile READMEs in minutes",
     generator: 'v0.dev'
 }
 

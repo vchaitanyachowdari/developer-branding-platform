@@ -1,6 +1,31 @@
 import type { UserProfile } from "@/types/profile"
 import { templates } from "./templates"
 import { themes } from "./themes"
+import { skillIcons, skillWebsites } from "./skills-data"
+
+// Define skillCategories here or import it from a file
+const skillCategories: { [key: string]: { title: string; skills: string[] } } = {
+  frontend: {
+    title: "Frontend",
+    skills: ["HTML", "CSS", "JavaScript", "React", "Vue.js", "Angular"],
+  },
+  backend: {
+    title: "Backend",
+    skills: ["Node.js", "Python", "Java", "Go", "Ruby", "PHP"],
+  },
+  database: {
+    title: "Database",
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "SQLite"],
+  },
+  devops: {
+    title: "DevOps",
+    skills: ["Docker", "Kubernetes", "AWS", "Azure", "GCP"],
+  },
+  mobile: {
+    title: "Mobile",
+    skills: ["Android", "iOS", "React Native", "Flutter"],
+  },
+}
 
 export function generateMarkdown(profile: UserProfile): string {
   let markdown = ""
@@ -149,57 +174,114 @@ export function generateMarkdown(profile: UserProfile): string {
   }
 
   // Skills
-  if (orderedSections.includes("skills") && profile.skills.length > 0) {
+  if (orderedSections.includes("skills")) {
     markdown += "## Skills & Technologies\n\n"
 
-    // Apply different skill layouts based on customization
-    switch (profile.customization.skillsLayout) {
-      case "grid":
-        const skillsGrid = profile.skills
-          .map((skill) => {
-            const lowerSkill = skill.toLowerCase()
-            return `<img src="https://img.shields.io/badge/-${skill}-3a464b?style=flat-square&logo=${lowerSkill}" alt="${skill}" />`
+    // Get selected skills
+    const selectedSkillNames = Object.keys(profile.selectedSkills).filter(
+      (skillName) => profile.selectedSkills[skillName],
+    )
+
+    if (selectedSkillNames.length > 0) {
+      // Apply different skill layouts based on customization
+      switch (profile.customization.skillsLayout) {
+        case "grid":
+          markdown += '<div align="center">\n\n'
+          selectedSkillNames.forEach((skill) => {
+            if (skillIcons[skill] && skillWebsites[skill]) {
+              markdown += `<a href="${skillWebsites[skill]}" target="_blank" rel="noreferrer">`
+              markdown += `<img src="${skillIcons[skill]}" alt="${skill}" width="40" height="40"/>`
+              markdown += `</a>&nbsp;&nbsp;`
+            }
           })
-          .join(" ")
-        markdown += `<div align="center">\n\n${skillsGrid}\n\n</div>\n\n`
-        break
+          markdown += "\n\n</div>\n\n"
+          break
 
-      case "inline":
-        markdown += `\`${profile.skills.join("` • `")}\`\n\n`
-        break
-
-      case "badges":
-        const skillsBadges = profile.skills
-          .map((skill) => {
-            const lowerSkill = skill.toLowerCase()
-            return `![${skill}](https://img.shields.io/badge/-${skill}-${theme.colors.primary.replace("#", "")}?style=for-the-badge&logo=${lowerSkill}&logoColor=white)`
+        case "badges":
+          selectedSkillNames.forEach((skill) => {
+            if (skillWebsites[skill]) {
+              markdown += `[![${skill}](https://img.shields.io/badge/-${skill}-${theme.colors.primary.replace("#", "")}?style=for-the-badge&logo=${skill}&logoColor=white)](${skillWebsites[skill]}) `
+            }
           })
-          .join(" ")
-        markdown += `${skillsBadges}\n\n`
-        break
+          markdown += "\n\n"
+          break
 
-      case "rating":
-        markdown += "| Skill | Proficiency |\n| --- | --- |\n"
-        profile.skills.forEach((skill) => {
-          const rating =
-            "★".repeat(Math.floor(Math.random() * 3) + 3) + "☆".repeat(5 - (Math.floor(Math.random() * 3) + 3))
-          markdown += `| ${skill} | ${rating} |\n`
-        })
-        markdown += "\n"
-        break
+        case "table":
+          markdown += "| Skill | Category |\n| --- | --- |\n"
+          selectedSkillNames.forEach((skill) => {
+            const category =
+              Object.entries(skillCategories).find(([_, { skills }]) => skills.includes(skill))?.[0] || ""
 
-      case "neon":
-        const neonSkills = profile.skills
-          .map((skill) => {
-            return `<span style="color:${theme.colors.primary};text-shadow:0 0 10px ${theme.colors.primary};">${skill}</span>`
+            const categoryTitle = skillCategories[category]?.title || ""
+
+            markdown += `| [${skill}](${skillWebsites[skill] || "#"}) | ${categoryTitle} |\n`
           })
-          .join(" • ")
-        markdown += `<div align="center">\n\n${neonSkills}\n\n</div>\n\n`
-        break
+          markdown += "\n"
+          break
 
-      default:
-        const defaultSkills = profile.skills.join(", ")
-        markdown += `${defaultSkills}\n\n`
+        default:
+          markdown += '<div align="left">\n\n'
+          selectedSkillNames.forEach((skill) => {
+            if (skillIcons[skill] && skillWebsites[skill]) {
+              markdown += `<a href="${skillWebsites[skill]}" target="_blank" rel="noreferrer">`
+              markdown += `<img src="${skillIcons[skill]}" alt="${skill}" width="40" height="40"/>`
+              markdown += `</a>&nbsp;&nbsp;`
+            }
+          })
+          markdown += "\n\n</div>\n\n"
+      }
+    } else if (profile.skills.length > 0) {
+      // Fallback to manually entered skills if no skills are selected
+      switch (profile.customization.skillsLayout) {
+        case "grid":
+          const skillsGrid = profile.skills
+            .map((skill) => {
+              const lowerSkill = skill.toLowerCase()
+              return `<img src="https://img.shields.io/badge/-${skill}-3a464b?style=flat-square&logo=${lowerSkill}" alt="${skill}" />`
+            })
+            .join(" ")
+          markdown += `<div align="center">\n\n${skillsGrid}\n\n</div>\n\n`
+          break
+
+        case "inline":
+          markdown += `\`${profile.skills.join("` • `")}\`\n\n`
+          break
+
+        case "badges":
+          const skillsBadges = profile.skills
+            .map((skill) => {
+              const lowerSkill = skill.toLowerCase()
+              return `![${skill}](https://img.shields.io/badge/-${skill}-${theme.colors.primary.replace("#", "")}?style=for-the-badge&logo=${lowerSkill}&logoColor=white)`
+            })
+            .join(" ")
+          markdown += `${skillsBadges}\n\n`
+          break
+
+        case "rating":
+          markdown += "| Skill | Proficiency |\n| --- | --- |\n"
+          profile.skills.forEach((skill) => {
+            const rating =
+              "★".repeat(Math.floor(Math.random() * 3) + 3) + "☆".repeat(5 - (Math.floor(Math.random() * 3) + 3))
+            markdown += `| ${skill} | ${rating} |\n`
+          })
+          markdown += "\n"
+          break
+
+        case "neon":
+          const neonSkills = profile.skills
+            .map((skill) => {
+              return `<span style="color:${theme.colors.primary};text-shadow:0 0 10px ${theme.colors.primary};">${skill}</span>`
+            })
+            .join(" • ")
+          markdown += `<div align="center">\n\n${neonSkills}\n\n</div>\n\n`
+          break
+
+        default:
+          const defaultSkills = profile.skills.join(", ")
+          markdown += `${defaultSkills}\n\n`
+      }
+    } else {
+      markdown += "_No skills specified_\n\n"
     }
   }
 
