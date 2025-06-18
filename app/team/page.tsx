@@ -23,50 +23,16 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Alex Johnson",
+    name: "V Chaitanya Chowdari",
     role: "Founder & Lead Developer",
     bio: "Full-stack developer with a passion for creating tools that help developers showcase their work. Alex founded DevBrand to solve the problem of creating professional GitHub profiles.",
     image: "/placeholder.svg?height=400&width=400",
     links: {
-      website: "https://example.com",
-      github: "github",
-      twitter: "twitter",
-      linkedin: "linkedin",
-      email: "alex@example.com",
-    },
-  },
-  {
-    name: "Sarah Chen",
-    role: "UI/UX Designer",
-    bio: "Designer with a background in both graphic design and frontend development. Sarah is responsible for the beautiful, intuitive interface of DevBrand.",
-    image: "/placeholder.svg?height=400&width=400",
-    links: {
-      website: "https://example.com",
-      github: "github",
-      twitter: "twitter",
-      linkedin: "linkedin",
-    },
-  },
-  {
-    name: "Michael Rodriguez",
-    role: "Frontend Developer",
-    bio: "React specialist with an eye for detail. Michael ensures that DevBrand is responsive, accessible, and performs well across all devices.",
-    image: "/placeholder.svg?height=400&width=400",
-    links: {
-      github: "github",
-      linkedin: "linkedin",
-      email: "michael@example.com",
-    },
-  },
-  {
-    name: "Priya Patel",
-    role: "Backend Developer",
-    bio: "Systems architect with expertise in building scalable applications. Priya handles the server-side logic and ensures DevBrand runs smoothly.",
-    image: "/placeholder.svg?height=400&width=400",
-    links: {
-      github: "github",
-      linkedin: "linkedin",
-      twitter: "twitter",
+      website: "https://chowdari.in",
+      github: "https://github.com/vchaitanyachowdari",
+      twitter: "https://x.com/vchaitanyachai?s=11",
+      linkedin: "https://www.linkedin.com/in/v-chaitanya-chowdari-bb3733202",
+      email: "vchaitanya@chowdari.in",
     },
   },
 ]
