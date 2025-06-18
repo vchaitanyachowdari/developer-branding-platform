@@ -1,7 +1,6 @@
 # Developer Branding Platform
-<img width="1470" alt="Screenshot 2025-05-11 at 11 13 12 AM" src="https://github.com/user-attachments/assets/aafe491f-1ff9-4bfd-8c0a-000f39d01ce2" />
 
-# Developer Branding Platform
+<img width="1470" alt="Screenshot 2025-05-11 at 11 13 12 AM" src="https://github.com/user-attachments/assets/aafe491f-1ff9-4bfd-8c0a-000f39d01ce2" />
 
 > **Live Demo**: [https://developer-branding-platform.vercel.app](https://developer-branding-platform.vercel.app)  
 > **Author**: [V Chaitanya Chowdari](https://www.linkedin.com/in/v-chaitanya-chowdari-bb3733202)  
