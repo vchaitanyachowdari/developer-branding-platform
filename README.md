@@ -33,7 +33,7 @@
 
 ## 📁 Folder Structure
 
-```bash
+\`\`\`bash
 📦developer-branding-platform
 ├── app
 │   ├── api
@@ -54,7 +54,7 @@
 ├── utils
 ├── middleware.ts
 └── tailwind.config.ts
-```
+\`\`\`
 
 ## 🧪 How It Works
 
@@ -73,26 +73,26 @@
 
 ### Installation
 
-```bash
+\`\`\`bash
 git clone https://github.com/vchaitanyachowdari/developer-branding-platform.git
 cd developer-branding-platform
 pnpm install
-```
+\`\`\`
 
 ### Run Locally
 
-```bash
+\`\`\`bash
 pnpm dev
-```
+\`\`\`
 
 ### Environment Variables
 
 Create a `.env.local` file and add the following:
 
-```env
+\`\`\`env
 GITHUB_TOKEN=your_github_token
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
-```
+\`\`\`
 
 > Optionally add WakaTime and Blog RSS URL for full feature support.
 
@@ -108,9 +108,9 @@ You can customize theme, layout, and sections from the `components/builder` fold
 
 This app is ready to deploy on Vercel.
 
-```bash
+\`\`\`bash
 vercel --prod
-```
+\`\`\`
 
 ## 🤝 Contributing
 
